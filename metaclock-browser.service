@@ -1,0 +1,11 @@
+[Unit]
+Description=metaclock browser
+After=metaclock-httpserver.service
+
+[Service]
+ExecStart=/usr/bin/chromium-browser --kiosk http://localhost:3000/
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

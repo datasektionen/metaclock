@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's META o'clock</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#hidemouse {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: none;
+}
+
+body {
+    overflow: hidden;
+}
+
+iframe {
+    width: 100vw;
+    height: 80vh;
+    border: none;
+}
+
+@font-face {
+    font-family: poppins;
+    src: url('/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: roboto-mono;
+    src: url('/RobotoMono-VariableFont_wght.ttf') format('truetype');
+}
+
+#clock {
+    position: fixed;
+    bottom: 0;
+    height: 26vh;
+    width: 100vw;
+    background-color: #222222;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    gap: 1em;
+    font-family: poppins;
+}
+
+#weekday {
+    text-transform: capitalize;
+}
+
+#time {
+    font-family: roboto-mono;
+    margin-bottom: 5px;
+}
+    </style>
+
+    <script src="/main.js" defer type="module"></script>
+</head>
+<body>
+    <iframe src="https://sl.datasektionen.se/metro"></iframe>
+    <section id="clock">
+        <p><span id="weekday">Nåndag</span> v.<span id="week-nr">?</span></p>
+        <p id="date">?? ??uari 20??</p>
+        <p id="time">??:??:??</p>
+    </section>
+    <div id="hidemouse"></div>
+</body>
+</html>
