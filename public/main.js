@@ -16,7 +16,10 @@ setInterval(() => {
 
     const i = Math.floor(now.getSeconds() / 10) % sl.length;
     function update() {
+        const nextI = (i + 1) % sl.length;
+        sl[nextI].style.display = "block";
         sl[prevI].style.visibility = "hidden";
+        sl[prevI].style.display = "none";
         sl[i].style.visibility = "visible";
         prevI = i;
     }
