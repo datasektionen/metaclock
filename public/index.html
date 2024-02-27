@@ -22,12 +22,20 @@
 
 body {
     overflow: hidden;
+    background-color: #222;
+}
+
+main {
+    position: relative;
+    width: 100vw;
+    height: 80vh;
 }
 
 iframe {
     width: 100vw;
     height: 80vh;
     border: none;
+    position: absolute;
 }
 
 @font-face {
@@ -45,7 +53,7 @@ iframe {
     bottom: 0;
     height: 26vh;
     width: 100vw;
-    background-color: #222222;
+    background-color: #222;
     color: white;
     display: flex;
     justify-content: center;
@@ -53,6 +61,7 @@ iframe {
     font-size: 4rem;
     gap: 1em;
     font-family: poppins;
+    view-transition-name: clock;
 }
 
 #weekday {
@@ -63,12 +72,49 @@ iframe {
     font-family: roboto-mono;
     margin-bottom: 5px;
 }
+
+@keyframes slide-to-left {
+    to { transform: translateX(-10%); }
+}
+
+@keyframes slide-from-right {
+    from { transform: translateX(10%); }
+}
+
+@keyframes fade-out {
+    to { opacity: 0; }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+}
+
+main {
+    view-transition-name: sl;
+}
+
+::view-transition-old(sl),
+::view-transition-new(sl) {
+    animation-duration: 2s;
+}
+
+::view-transition-old(sl) {
+    animation: 500ms ease-in-out both slide-to-left;
+}
+
+::view-transition-new(sl) {
+    animation: 500ms ease-in-out both slide-from-right, 400ms ease-out both fade-in;
+}
     </style>
 
     <script src="/main.js" defer type="module"></script>
 </head>
 <body>
-    <iframe src="https://sl.datasektionen.se/metro"></iframe>
+    <main>
+        <iframe src="https://sl.datasektionen.se/metro"></iframe>
+        <iframe src="https://sl.datasektionen.se/tram"></iframe>
+        <iframe src="https://sl.datasektionen.se/bus"></iframe>
+    </main>
     <section id="clock">
         <p><span id="weekday">Nåndag</span> v.<span id="week-nr">?</span></p>
         <p id="date">?? ??uari 20??</p>
