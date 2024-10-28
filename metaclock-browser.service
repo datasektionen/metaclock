@@ -3,7 +3,7 @@ Description=metaclock browser
 After=metaclock-httpserver.service
 
 [Service]
-ExecStart=/usr/bin/chromium-browser --start-maximized --kiosk http://localhost:3000/
+ExecStart=/home/metaclock/metaclock/start-browser.sh
 Restart=always
 RestartSec=5
 
