@@ -1,0 +1,12 @@
+[Unit]
+Description=META-Clock dynamic dns
+After=network.target
+
+[Service]
+EnvironmentFile=/home/metaclock/metaclock/.env
+User=tv
+ExecStart=/home/metaclock/metaclock/dyndns.sh
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
