@@ -1,4 +1,4 @@
-Install `unclutter` with apt or w/e
+Install wayfire-plugins-extra. Enable hide-cursor by copying the plugin line from /etc/wayfire/defaults.ini to ~/.config/wayfire.ini under `[core]` and adding `hide-cursor`.
 
 Clone into `/home/metaclock/metaclock`
 
